@@ -11,8 +11,11 @@ namespace ClassLibrary1
         static void Main(string[] args)
         {
             //data source is arrays - normally get this data from database
-            string[] questions = new string[]{"Who are the 2014/2015 champions of Europe?","Who are the 2014/2015 FA Cup champions?"};
-            string[] answers = new string[]{"Barcelona","Arsenal"};
+            string[] questions = new string[]{"Who are the 2014/2015 champions of Europe?","Who are the 2014/2015 FA Cup champions?", "Which club did Steven Gerrard leave in June 2015?", "Who is Aresenal's record tops scorer?", "Name one of Dennis Bergkamp's former nicknames"};
+            List<List<string>> answers = new List<List<string>>{
+                new List<string>{"Barcelona","Arsenal"}, 
+                new List<string>{"Liverpool", "Thierry Henry"}, 
+                new List<string>{"iceman", "flying dutchman"}};
             ConsoleColor[] colors = new ConsoleColor[]{ConsoleColor.Yellow,ConsoleColor.Magenta};
             int[] whiteList = new int[] {1, 0};
 
@@ -21,13 +24,19 @@ namespace ClassLibrary1
                 if (!whiteList.Contains(i))
                     continue;
                 var question = questions[i];
-                var answer = answers[i];
                 var color = colors[i];
                 Console.ForegroundColor = color;
                 Console.WriteLine(question);
                 var userVal = Console.ReadLine();
                 //use a case insensitive string comparison
-                if(userVal.Equals(answer,StringComparison.InvariantCultureIgnoreCase)){
+                bool correct = false;
+                foreach (var answer in answers[i]) {
+                    if (userVal.Equals(answer, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        correct = true;
+                    }
+                }
+                if(correct){
                     Console.WriteLine("correct!");
                 }else{                    
                     Console.WriteLine("fail!");
@@ -75,6 +84,9 @@ namespace ClassLibrary1
 #endregion
 
         }
+    
+    
     }
 }
+
 
