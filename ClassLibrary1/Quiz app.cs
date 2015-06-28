@@ -54,15 +54,16 @@ namespace ClassLibrary1
                 if (userin.Equals("yes", StringComparison.InvariantCultureIgnoreCase))
                     // Console.ReadLine(userVal);
                     //if ( userVal == "yes")
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Stage 2");
                 
-                string[] questionsstage2 = new string[] { "Stage 2 q here"};
-                string[] answersstage2 = new string[] { "Stage 2 ans here"};
-                ConsoleColor[] colorsstage2 = new ConsoleColor[] { ConsoleColor.Cyan, ConsoleColor.Magenta, ConsoleColor.Yellow, ConsoleColor.DarkYellow, ConsoleColor.Red };
+                string[] questionsstage2 = new string[] { "Who is the superior footballer, Aimen or Hermon?"};
+                string[] answersstage2 = new string[] { "hermon"};
+                ConsoleColor[] colorsstage2 = new ConsoleColor[] { ConsoleColor.DarkYellow};
                 //int[] whiteList = new int[] { 1, 0 };
 
                 //run questions
-                for (var y = 0; y < questions.Length; y++)
+                for (var y = 0; y < questionsstage2.Length; y++)
                 {
                     // if (!whiteList.Contains(i))
                     //continue;
