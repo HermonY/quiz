@@ -64,7 +64,7 @@ namespace ClassLibrary1
 
                 //run questions
                 for (var y = 0; y < questionsstage2.Length; y++)
-                {
+                {//delete comment
                     // if (!whiteList.Contains(i))
                     //continue;
                     var questionstage2 = questionsstage2[y];
