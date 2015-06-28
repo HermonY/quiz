@@ -11,44 +11,84 @@ namespace ClassLibrary1
         static void Main(string[] args)
         {
             //data source is arrays - normally get this data from database
-            string[] questions = new string[]{"Who are the 2014/2015 champions of Europe?","Who are the 2014/2015 FA Cup champions?", "Which club did Steven Gerrard leave in June 2015?", "Who is Aresenal's record tops scorer?", "Name one of Dennis Bergkamp's former nicknames"};
-            List<List<string>> answers = new List<List<string>>{
-                new List<string>{"Barcelona","Arsenal"}, 
-                new List<string>{"Liverpool", "Thierry Henry"}, 
-                new List<string>{"iceman", "flying dutchman"}};
-            ConsoleColor[] colors = new ConsoleColor[]{ConsoleColor.Yellow,ConsoleColor.Magenta};
-            int[] whiteList = new int[] {1, 0};
+            string[] questions = new string[] { "Who are the 2014/2015 champions of Europe?", "Who are the 2014/2015 FA Cup champions?", "Which team did Steven Gerrard leave to join LA Galaxy?", "What is the full name of Arsenal's record goal scorer?", "What number shirt did Dennis Bergkamp wear for Arsenal?" };
+            string[] answers = new string[] { "Barcelona", "Arsenal", "Liverpool", "Thierry Henry", "10" };
+            ConsoleColor[] colors = new ConsoleColor[] { ConsoleColor.Cyan, ConsoleColor.Cyan, ConsoleColor.Cyan, ConsoleColor.Cyan, ConsoleColor.Cyan };
+            //int[] whiteList = new int[] { 1, 0 };
 
             //run questions
-            for(var i=0; i<questions.Length; i++){
-                if (!whiteList.Contains(i))
-                    continue;
+            for (var i = 0; i < questions.Length; i++)
+            {
+                // if (!whiteList.Contains(i))
+                //continue;
                 var question = questions[i];
+                var answer = answers[i];
                 var color = colors[i];
                 Console.ForegroundColor = color;
                 Console.WriteLine(question);
                 var userVal = Console.ReadLine();
                 //use a case insensitive string comparison
-                bool correct = false;
-                foreach (var answer in answers[i]) {
-                    if (userVal.Equals(answer, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        correct = true;
-                    }
-                }
-                if(correct){
+                if (userVal.Equals(answer, StringComparison.InvariantCultureIgnoreCase))
+                {
                     Console.WriteLine("correct!");
-                }else{                    
+                }
+                else
+                {
                     Console.WriteLine("fail!");
                     //decrement counter to rety same question
                     i--;
+
+                    if (i == questions.Length - 1)
+                        Console.ReadLine();
+                }
+
+    
                 };
+
+
                 //if last question, readline to stop program closing
-                if(i == questions.Length-1)
-                    Console.ReadLine();
-            }
-#region oldstuff
-            /*
+               // if (i == questions.Length - 1)
+                 //   break;
+                    Console.WriteLine("Well done, you have completed Stage 1. Would you like to continue?");
+                var userin = Console.ReadLine();
+                if (userin.Equals("yes", StringComparison.InvariantCultureIgnoreCase))
+                    // Console.ReadLine(userVal);
+                    //if ( userVal == "yes")
+                    Console.WriteLine("Stage 2");
+                
+                string[] questionsstage2 = new string[] { "Stage 2 q here"};
+                string[] answersstage2 = new string[] { "Stage 2 ans here"};
+                ConsoleColor[] colorsstage2 = new ConsoleColor[] { ConsoleColor.Cyan, ConsoleColor.Magenta, ConsoleColor.Yellow, ConsoleColor.DarkYellow, ConsoleColor.Red };
+                //int[] whiteList = new int[] { 1, 0 };
+
+                //run questions
+                for (var y = 0; y < questions.Length; y++)
+                {
+                    // if (!whiteList.Contains(i))
+                    //continue;
+                    var questionstage2 = questionsstage2[y];
+                    var answerstage2 = answersstage2[y];
+                    var colorstage2 = colorsstage2[y];
+                    //var colorstage2 = colorsstage2[y];
+                    Console.ForegroundColor = colorstage2;
+                    Console.WriteLine(questionstage2);
+                    var userans = Console.ReadLine();
+                    //use a case insensitive string comparison
+                    if (userans.Equals(answerstage2, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        Console.WriteLine("correct!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("fail!");
+                        //decrement counter to rety same question
+                        y--;
+                    };
+
+
+                }
+                #region oldstuff
+                /*
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Please select a topic for the quiz: Sports, Superheros or Trivia.");
             string userValue = Console.ReadLine();
@@ -81,12 +121,14 @@ namespace ClassLibrary1
         
             }
             */
-#endregion
+                #endregion
+
+            }
+
 
         }
-    
-    
     }
-}
+
+
 
 
