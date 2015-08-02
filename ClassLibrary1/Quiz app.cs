@@ -36,7 +36,8 @@ namespace ClassLibrary1
                 {
                     Console.WriteLine("fail!");
                     //decrement counter to rety same question
-                    i--;
+                    //i--;
+                    //create a new variable called failure count of type int 
 
                     if (i == questions.Length - 1)
                         Console.ReadLine();

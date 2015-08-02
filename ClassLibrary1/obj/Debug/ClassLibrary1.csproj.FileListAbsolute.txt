@@ -13,3 +13,8 @@ C:\Users\Hermon\training101\Quiz app\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
 C:\Users\Hermon\training101\Quiz app\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
 C:\Users\Hermon\training101\Quiz app\ClassLibrary1\bin\Debug\ClassLibrary1.exe
 C:\Users\Hermon\training101\Quiz app\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Hermon\quiz\ClassLibrary1\obj\Debug\ClassLibrary1.exe
+C:\Users\Hermon\quiz\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\Hermon\quiz\ClassLibrary1\bin\Debug\ClassLibrary1.exe
+C:\Users\Hermon\quiz\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Hermon\quiz\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
