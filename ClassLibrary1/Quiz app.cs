@@ -14,6 +14,8 @@ namespace ClassLibrary1
             string[] questions = new string[] { "Who are the 2014/2015 champions of Europe?", "Who are the 2014/2015 FA Cup champions?", "Which team did Steven Gerrard leave to join LA Galaxy?", "What is the full name of Arsenal's record goal scorer?", "What number shirt did Dennis Bergkamp wear for Arsenal?" };
             string[] answers = new string[] { "Barcelona", "Arsenal", "Liverpool", "Thierry Henry", "10" };
             ConsoleColor[] colors = new ConsoleColor[] { ConsoleColor.Cyan, ConsoleColor.Cyan, ConsoleColor.Cyan, ConsoleColor.Cyan, ConsoleColor.Cyan };
+            int correctCount = 0;
+            int incorrectCount = 0;
             //int[] whiteList = new int[] { 1, 0 };
 
             //run questions
@@ -31,64 +33,79 @@ namespace ClassLibrary1
                 if (userVal.Equals(answer, StringComparison.InvariantCultureIgnoreCase))
                 {
                     Console.WriteLine("correct!");
+                    correctCount++;
+
+                }
+                else
+                {
+                    Console.WriteLine("incorrect!");
+                    incorrectCount++;
+
+                    // if (i == questions.Length - 1)
+                    // Console.ReadLine();
+                };
+            }
+
+            Console.WriteLine("you scored " + correctCount + " out of 5");
+            // Console.ReadLine();
+            if (correctCount == questions.Length)
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Well done, you have completed Stage 1. Would you like to continue?");
+            var userin = Console.ReadLine();
+            if (userin.Equals("yes", StringComparison.InvariantCultureIgnoreCase))
+                Console.ForegroundColor = ConsoleColor.Red;
+            else
+                return;
+
+            Console.WriteLine("Stage 2");
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            string[] questionsstage2 = new string[] { "Who is the superior footballer, Henderson or Cazorla?" };
+            string[] answersstage2 = new string[] { "Cazorla" };
+            List<int> correctanswersstage2=new List<int>(); 
+            List<int> incorrectanswersstage2=new List<int>(); 
+            ConsoleColor[] colorsstage2 = new ConsoleColor[] { ConsoleColor.DarkYellow };
+
+            for (var y = 0; y < questionsstage2.Length; y++)
+            {
+
+                var questionstage2 = questionsstage2[y];
+                var answerstage2 = answersstage2[y];
+                var colorstage2 = colorsstage2[y];
+                int correctCount2 = 0;
+                int incorrectCount2 = 0;
+                Console.ForegroundColor = colorstage2;
+                Console.WriteLine(questionstage2);
+                var userans = Console.ReadLine();
+
+                if (userans.Equals(answerstage2, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    Console.WriteLine("correct!");
+                    correctCount2++;
+                    correctanswersstage2.Add(y);
+                    
+
                 }
                 else
                 {
                     Console.WriteLine("fail!");
-                    //decrement counter to rety same question
-                    //i--;
-                    //create a new variable called failure count of type int 
+                    incorrectCount2++;
+                    incorrectanswersstage2.Add(y);
 
-                    if (i == questions.Length - 1)
-                        Console.ReadLine();
-                }
-
-    
+                    y--;
                 };
 
-
-                //if last question, readline to stop program closing
-               // if (i == questions.Length - 1)
-                 //   break;
-                    Console.WriteLine("Well done, you have completed Stage 1. Would you like to continue?");
-                var userin = Console.ReadLine();
-                if (userin.Equals("yes", StringComparison.InvariantCultureIgnoreCase))
-                    // Console.ReadLine(userVal);
-                    //if ( userVal == "yes")
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Stage 2");
-                
-                string[] questionsstage2 = new string[] { "Who is the superior footballer, Aimen or Hermon?"};
-                string[] answersstage2 = new string[] { "hermon"};
-                ConsoleColor[] colorsstage2 = new ConsoleColor[] { ConsoleColor.DarkYellow};
-                //int[] whiteList = new int[] { 1, 0 };
-
-                //run questions
-                for (var y = 0; y < questionsstage2.Length; y++)
-                {//delete comment
-                    // if (!whiteList.Contains(i))
-                    //continue;
-                    var questionstage2 = questionsstage2[y];
-                    var answerstage2 = answersstage2[y];
-                    var colorstage2 = colorsstage2[y];
-                    //var colorstage2 = colorsstage2[y];
-                    Console.ForegroundColor = colorstage2;
-                    Console.WriteLine(questionstage2);
-                    var userans = Console.ReadLine();
-                    //use a case insensitive string comparison
-                    if (userans.Equals(answerstage2, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        Console.WriteLine("correct!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("fail!");
-                        //decrement counter to rety same question
-                        y--;
-                    };
-
-
+                Console.WriteLine("Would you like to view your report?");
+                var userVal2 = Console.ReadLine();
+                if (userans.Equals("yes", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    Console.WriteLine("Your stage 1 score was " + correctCount + " out of " + questions.Length + " and your stage 2 score was " + correctCount2 + " out of " +  questionstage2.Length);
+                Console.ReadLine();
                 }
+
+            //loop through questions and correct answers then show uservalue for report
+             
+
                 #region oldstuff
                 /*
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -130,6 +147,8 @@ namespace ClassLibrary1
 
         }
     }
+}
+
 
 
 
