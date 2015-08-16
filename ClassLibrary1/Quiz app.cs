@@ -10,8 +10,8 @@ namespace ClassLibrary1
     {
         static void Main(string[] args)
         {
+            #region stage1
             //data source is arrays - normally get this data from database
-<<<<<<< HEAD
             string[] questions = new string[] { "Who are the 2014/2015 champions of Europe?", "Who are the 2014/2015 FA Cup champions?", "Which team did Steven Gerrard leave to join LA Galaxy?", "What is the full name of Arsenal's record goal scorer?", "What number shirt did Dennis Bergkamp wear for Arsenal?" };
             string[] answers = new string[] { "1", "2", "3", "4", "5" };
             ConsoleColor[] colors = new ConsoleColor[] { ConsoleColor.Cyan, ConsoleColor.Cyan, ConsoleColor.Cyan, ConsoleColor.Cyan, ConsoleColor.Cyan };
@@ -19,17 +19,12 @@ namespace ClassLibrary1
             int correctCount = 0;
             int incorrectCount = 0;
             //int[] whiteList = new int[] { 1, 0 };
-=======
-            string[] questions = new string[]{"Who are the 2014/2015 champions of Europe?","Who are the 2014/2015 FA Cup champions?"};
-            string[] answers = new string[]{"Barcelona","Arsenal"};
-            ConsoleColor[] colors = new ConsoleColor[]{ConsoleColor.Yellow,ConsoleColor.Magenta};
-            int[] whiteList = new int[] {1, 0};
->>>>>>> 5e781c86e0ff468ee25c555ef1c9908fa1a5ceef
 
             //run questions
-            for(var i=0; i<questions.Length; i++){
-                if (!whiteList.Contains(i))
-                    continue;
+            for (var i = 0; i < questions.Length; i++)
+            {
+                // if (!whiteList.Contains(i))
+                //continue;
                 var question = questions[i];
                 var answer = answers[i];
                 var color = colors[i];
@@ -38,9 +33,9 @@ namespace ClassLibrary1
                 var userVal = Console.ReadLine();
                 useranswers.Add(userVal);
                 //use a case insensitive string comparison
-                if(userVal.Equals(answer,StringComparison.InvariantCultureIgnoreCase)){
+                if (userVal.Equals(answer, StringComparison.InvariantCultureIgnoreCase))
+                {
                     Console.WriteLine("correct!");
-<<<<<<< HEAD
                     correctCount++;
 
                 }
@@ -64,7 +59,10 @@ namespace ClassLibrary1
                 Console.ForegroundColor = ConsoleColor.White;
             else
                 return;
-            
+            #endregion
+
+            #region stage2
+
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("Stage 2");
@@ -95,7 +93,7 @@ namespace ClassLibrary1
                     correctCount2++;
                     correctanswersstage2.Add(y);
                     
-
+                    
                 }
                 else
                 {
@@ -106,6 +104,10 @@ namespace ClassLibrary1
                     y--;
                 };
 
+            #endregion
+
+
+                #region report
                 //REPORT SECTION
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Would you like to view your report?");
@@ -135,74 +137,29 @@ namespace ClassLibrary1
                     Console.ReadLine();
                 }
 
-                
-   
 
-            
-                
-                
+                #endregion
 
-            //loop through questions and correct answers then show uservalue for report
+
+
+
+
+                //loop through questions and correct answers then show uservalue for report
              
 
                 #region oldstuff
-                /*
-=======
-                }else{                    
-                    Console.WriteLine("fail!");
-                    //decrement counter to rety same question
-                    i--;
-                };
-                //if last question, readline to stop program closing
-                if(i == questions.Length-1)
-                    Console.ReadLine();
+    
+                #endregion
+
             }
-#region oldstuff
-            /*
->>>>>>> 5e781c86e0ff468ee25c555ef1c9908fa1a5ceef
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Please select a topic for the quiz: Sports, Superheros or Trivia.");
-            string userValue = Console.ReadLine();
 
-            string message = "";
-
-            if (userValue == "Sports")
-            {
-                message = "You have chosen Sports!";
-             Console.ForegroundColor = ConsoleColor.Red;
-                
-            }
-                
-                else if (userValue == "Superhero")
-                {
-                    message = "You have chosen Superhero!";
-                }
-
-                else if (userValue == "Trivia")
-                {
-                    message = "You have chosen Trivia!";
-                }
-                else
-                {
-                    message = "Sorry, I did not understand your answer";
-                }
-
-                Console.WriteLine(message);
-                Console.ReadLine();
-        
-            }
-            */
-#endregion
 
         }
     }
 }
-<<<<<<< HEAD
 
 
 
 
 
-=======
->>>>>>> 5e781c86e0ff468ee25c555ef1c9908fa1a5ceef
 
